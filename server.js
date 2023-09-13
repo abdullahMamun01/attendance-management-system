@@ -4,7 +4,7 @@ const morgan = require("morgan")
 const app = express()
 const connectDB = require("./db")
 const routes = require("./routes/index")
-const {globalErrorHandle} = require("./globalError")
+const {globalErrorHandle, notFound} = require("./globalError")
 const authenticate = require("./middleware/authenticate ")
 app.use(express.json())
 app.use(cors())
@@ -20,6 +20,7 @@ app.get("/api/v1/auth/private" , authenticate , (req,res,next) =>{
 app.get('/health', (req, res) => {
 	res.status(201).json({ message: "ok" })
 })
+app.use(notFound)
 app.use(globalErrorHandle)
 
 connectDB("mongodb://localhost:27017/attend-dance")
