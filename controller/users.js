@@ -74,7 +74,7 @@ const deleteUserById = async (req, res, next) => {
         const user = await findUserByProperty("_id", userId)
         if (!user) throw error("User not found", 404)
         await deleteById(user._id)
-        return res.status(203).send()
+        return res.status(203).send() ;
     } catch (e) {
         next(e)
     }
