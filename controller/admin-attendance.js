@@ -46,6 +46,7 @@ const getStatus = async (_res, res, next) => {
         const addTime = addMinutes(new Date(running.createdAt) , running.timeLimit)
         if(isAfter(new Date(), addTime)){
             running.status = "COMPLETED"
+            await running.save()
         }
         return res.status(200).json(running)
         
