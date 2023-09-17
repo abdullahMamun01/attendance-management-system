@@ -16,7 +16,6 @@ delete user by id
  * @method get  
  * @route '/'
  */
-
 router.get('/' , getAllUsers)
 
 /** find user by id
@@ -38,7 +37,6 @@ router.delete('/:userId' , deleteUserById)
  * @method patch  
  * @route '/:userId'
  */
-
 router.patch("/:userId" ,patchUserById)
 
 /** update user by id
@@ -47,4 +45,5 @@ router.patch("/:userId" ,patchUserById)
  * @route '/:userId'
  */
 router.put("/:userId" ,putUserBYId)
+
 module.exports = router
